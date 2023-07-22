@@ -38,7 +38,7 @@ else:
       target_middle_i = target_middle_name[0]
 
 if args.dob:
-      dob_split = args.name.split(".")
+      dob_split = args.dob.split(".")
       birthyyyy = dob_split[2]
       birthyy = dob_split[3]
       birthmm = dob_split[0]
@@ -55,122 +55,132 @@ else:
 #Remaining options:
 
 #Spouse/Partner
-baelist = args.bae.split(",")
-baename = baelist[0]
-baedob = baelist[1]
-baedoblist = baedob.split(".")
-baemm = baedoblist[0]
-baedd = baedoblist[1]
-baeyyyy = baedoblist[2]
-baeyy = baedoblist[3]
+if args.bae:
+    baelist = args.bae.split(",")
+    baename = baelist[0]
+    baedob = baelist[1]
+    baedoblist = baedob.split(".")
+    baemm = baedoblist[0]
+    baedd = baedoblist[1]
+    baeyyyy = baedoblist[2]
+    baeyy = baedoblist[3]
 
 #Favorite Kid
-kidlist = args.kid.split(",")
-kidname = kidlist[0]
-kiddob = kidlist[1]
-kiddoblist = kiddob.split(".")
-kidmm = kiddoblist[0]
-kiddd = kiddoblist[1]
-kidyyyy = kiddoblist[2]
-kidyy = kiddoblist[3]
+if args.kid:
+    kidlist = args.kid.split(",")
+    kidname = kidlist[0]
+    kiddob = kidlist[1]
+    kiddoblist = kiddob.split(".")
+    kidmm = kiddoblist[0]
+    kiddd = kiddoblist[1]
+    kidyyyy = kiddoblist[2]
+    kidyy = kiddoblist[3]
 
 #Kid 2
-kid2list = args.kid2.split(",")
-kid2name = kid2list[0]
-kid2dob = kid2list[1]
-kid2doblist = kid2dob.split(".")
-kid2mm = kid2doblist[0]
-kid2dd = kid2doblist[1]
-kid2yyyy = kid2doblist[2]
-kid2yy = kid2doblist[3]
+if args.kid2:
+    kid2list = args.kid2.split(",")
+    kid2name = kid2list[0]
+    kid2dob = kid2list[1]
+    kid2doblist = kid2dob.split(".")
+    kid2mm = kid2doblist[0]
+    kid2dd = kid2doblist[1]
+    kid2yyyy = kid2doblist[2]
+    kid2yy = kid2doblist[3]
 
 #Kid 3
-kid3list = args.kid3.split(",")
-kid3name = kid3list[0]
-kid3dob = kid3list[1]
-kid3doblist = kid3dob.split(".")
-kid3mm = kid3doblist[0]
-kid3dd = kid3doblist[1]
-kid3yyyy = kid3doblist[2]
-kid3yy = kid3doblist[3]
+if args.kid3:
+    kid3list = args.kid3.split(",")
+    kid3name = kid3list[0]
+    kid3dob = kid3list[1]
+    kid3doblist = kid3dob.split(".")
+    kid3mm = kid3doblist[0]
+    kid3dd = kid3doblist[1]
+    kid3yyyy = kid3doblist[2]
+    kid3yy = kid3doblist[3]
 
 #Pets/Friends
-petlist = args.pet.split(",")
-pet1 = petlist[0]
-pet2 = petlist[1]
-pet3 = petlist[2]
-pet4 = petlist[3]
-pet5 = petlist[4]
+if args.pet:
+    petlist = args.pet.split(",")
+    pet1 = petlist[0]
+    pet2 = petlist[1]
+    pet3 = petlist[2]
+    pet4 = petlist[3]
+    pet5 = petlist[4]
 
 #Sports
-sportlist = args.sport.split(",")
-sport1 = sportlist[0]
-sport2 = sportlist[1]
-sport3 = sportlist[2]
-sport4 = sportlist[3]
-sport5 = sportlist[4]
+if args.sport:
+    sportlist = args.sport.split(",")
+    sport1 = sportlist[0]
+    sport2 = sportlist[1]
+    sport3 = sportlist[2]
+    sport4 = sportlist[3]
+    sport5 = sportlist[4]
 
 #Important Years
-yrslist = args.yrs.split(",")
-yr1 = yrslist[0]
+if args.yrs:
+    yrslist = args.yrs.split(",")
+    yr1 = yrslist[0]
 #last two year digits
-shyr1 = yr1[2:]
-yr2 = yrslist[1]
-shyr2 = yr2[2:]
-yr3 = yrslist[2]
-shyr3 = yr3[2:]
-yr4 = yrslist[3]
-shyr4 = yr4[2:]
-yr5 = yrslist[4]
-shyr5 = yr5[2:]
+    shyr1 = yr1[2:]
+    yr2 = yrslist[1]
+    shyr2 = yr2[2:]
+    yr3 = yrslist[2]
+    shyr3 = yr3[2:]
+    yr4 = yrslist[3]
+    shyr4 = yr4[2:]
+    yr5 = yrslist[4]
+    shyr5 = yr5[2:]
 
 #Keywords
-keylist = args.key.split(",")
-key1 = keylist[0]
-key2 = keylist[1]
-key3 = keylist[2]
-key4 = keylist[3]
-key5 = keylist[4]
-key6 = keylist[5]
-key7 = keylist[6]
-key8 = keylist[7]
-key9 = keylist[8]
-key10 = keylist[9]
+if args.key:
+    keylist = args.key.split(",")
+    key1 = keylist[0]
+    key2 = keylist[1]
+    key3 = keylist[2]
+    key4 = keylist[3]
+    key5 = keylist[4]
+    key6 = keylist[5]
+    key7 = keylist[6]
+    key8 = keylist[7]
+    key9 = keylist[8]
+    key10 = keylist[9]
 
 
 print(target_first_name,target_last_name,target_middle_name,target_middle_i,date_of_birth, splitbirth, birthyyyy, birthyy, birthmm, birthdd)
-print(baelist, baename,baedob,baedoblist,baemm,baedd,baeyyyy,baeyy)
+#print(baelist, baename,baedob,baedoblist,baemm,baedd,baeyyyy,baeyy)
 
 
 
 #SAMPLEEEE
 #Password Generator:
-import random
-import string
+#import random
+#
+# import string
 
 # Custom password generation
-def generate_custom_password():
+#def generate_custom_password():
     # Implement your custom password generation logic here
     # This can include combining different elements, patterns, or using specific rules
     # Here's a simple example:
-    password = target_first_name.lower() + target_last_name.lower() + random.choice(string.digits)
-    return password
+    #password = target_first_name.lower() + target_last_name.lower() + random.choice(string.digits)
+    #return password
 
 # Brute force password generation using a word list
-def generate_brute_force_password():
-    word_list = ["apple", "banana", "cherry", "orange", "grape"]
-    password = random.choice(word_list) + random.choice(word_list) + random.choice(string.ascii_uppercase) + random.choice(string.digits) + random.choice(string.punctuation)
-    return password
+#def generate_brute_force_password():
+    #word_list = ["apple", "banana", "cherry", "orange", "grape"]
+    #password = random.choice(word_list) + random.choice(word_list) + random.choice(string.ascii_uppercase) + random.choice(string.digits) + random.choice(string.punctuation)
+    #return password
+
 
 # Generate passwords
-passwords = []
-for _ in range(5):  # Generate 5 passwords
-    if random.random() < 0.5:  # 50% chance of using custom password generation
-        password = generate_custom_password()
-    else:  # 50% chance of using brute force password generation
-        password = generate_brute_force_password()
-    passwords.append(password)
+#passwords = []
+#for _ in range(5):  # Generate 5 passwords
+    #if random.random() < 0.5:  # 50% chance of using custom password generation
+        #password = generate_custom_password()
+    #else:  # 50% chance of using brute force password generation
+        #password = generate_brute_force_password()
+    #passwords.append(password)
 
 # Print the generated passwords
-for password in passwords:
-    print(password)
+#for password in passwords:
+    #print(password)
