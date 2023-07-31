@@ -22,6 +22,19 @@ parser.add_argument("-c", action="store_true", help="option c")
 parser.add_argument("-d", action="store_true", help="option d")
 args = parser.parse_args()
 
+#Word List Generator:
+def generate_wordlist(*inputs):
+    elements = inputs
+    wordlist = []
+
+    for i in range(1, len(elements) + 1):
+        for combination in itertools.permutations(elements, i):
+            word = ''.join(combination)
+            if len(word) <= 12 and len(word) >= 6:
+                wordlist.append(word)
+    return wordlist
+
+
 #Input options for if no args were passed.
 
 if args.name:
@@ -30,12 +43,16 @@ if args.name:
       target_last_name = target_name_split[1]
       target_middle_name = target_name_split[2]
       target_middle_i = target_middle_name[0]
+      target_first_i = target_first_name[0]
+      target_last_i = target_last_name[0]
 
 else:
       target_first_name = input("Enter the target's first name: ")
       target_last_name = input("Enter the target's last name: ")
       target_middle_name = input("Enter the target's middle name or initial: ")
       target_middle_i = target_middle_name[0]
+      target_first_i = target_first_name[0]
+      target_last_i = target_last_name[0]
 
 if args.dob:
       dob_split = args.dob.split(".")
@@ -148,7 +165,8 @@ if args.key:
 
 print(target_first_name,target_last_name,target_middle_name,target_middle_i,date_of_birth, splitbirth, birthyyyy, birthyy, birthmm, birthdd)
 #print(baelist, baename,baedob,baedoblist,baemm,baedd,baeyyyy,baeyy)
-
+wordlist1 = generate_wordlist(target_last_i, target_first_i, target_first_name,target_last_name,target_middle_name,target_middle_i,birthyyyy,birthyy,birthdd,birthmm)
+print(wordlist1)
 
 
 #SAMPLEEEE
