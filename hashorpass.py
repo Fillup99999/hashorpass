@@ -26,30 +26,55 @@ args = parser.parse_args()
 
 
 #Word List Generator:
-def generate_wordlist(inputs):
-    elements = inputs
-    wordlist = []
-    total_combinations = 0
-    for i in range(1, len(elements) + 1):
-        for combo in itertools.permutations(elements, i):
-            word = ''.join(combo)
-            if len(word) <= 12 and len(word) >= 6:
-                total_combinations += 1
-                wordlist.append(word)
-                if total_combinations % 5000 == 0:
-                    print("LOADING...",total_combinations, "passwords")
-    print(str(total_combinations) + " passwords enumerated.")
-    if total_combinations > 50000:
-        question = input("The output is greater than 50,000 words (" + str(total_combinations) + ") do you want to continue? If you don't have a decent cpu you may want to cancel: (y/n)")
-        if question.lower() == "y":
-            return wordlist
-        else:
-            print("Action cancelled.")
-    elif total_combinations <= 50000:
-        return wordlist
-    else:
-        print("Error in generate_wordlist function.")
+#def generate_wordlist(inputs):
+#    elements = inputs
+#    wordlist = []
+#    total_combinations = 0
+#    for i in range(1, len(elements) + 1):
+#        for combo in itertools.permutations(elements, i):
+#            word = ''.join(combo)
+#            if len(word) <= 12 and len(word) >= 6:
+#                total_combinations += 1
+#                wordlist.append(word)
+#                if total_combinations % 5000 == 0:
+#                    print("LOADING...",total_combinations, "passwords")
+#    print(str(total_combinations) + " passwords enumerated.")
+#    if total_combinations > 50000:
+#        question = input("The output is greater than 50,000 words (" + str(total_combinations) + ") do you want to continue? If you don't have a decent cpu you may want to cancel: (y/n)")
+#        if question.lower() == "y":
+#            return wordlist
+#        else:
+#            print("Action cancelled.")
+#    elif total_combinations <= 50000:
+#        return wordlist
+#    else:
+#        print("Error in generate_wordlist function.")
 
+#NEW Word List Generator as Class:
+class WordlistGenerator:
+    def __init__(self, inputs):
+        self.elements = inputs
+        self.wordlist = []
+        self.total_combinations = 0
+
+    def generate_wordlist(self):
+        for i in range(1, len(self.elements) + 1):
+            for combo in itertools.permutations(self.elements, i):
+                word = ''.join(combo)
+                if len(word) <= 12 and len(word) >= 6:
+                    self.total_combinations += 1
+                    self.wordlist.append(word)
+                    if self.total_combinations > 50000:
+                        question = input("The output is greater than 50,000 words (" + str(self.total_combinations) + ") do you want to continue? If you don't have a decent cpu you may want to cancel: (y/n)")
+                        if question.lower == "n":
+                            #Might need to fix this:
+                                exit
+                        else:
+                            #FIX THIS TO MAKE COUNT ACCURATE
+                            if self.total_combinations % 5000 == 0:
+                                print("LOADING...", self.total_combinations, "passwords")
+        print(str(self.total_combinations) + " passwords enumerated.")
+        return self.wordlist
 
 #Export to file function:
 def export_list_to_file(word_list):
@@ -296,13 +321,14 @@ if args.key:
         masslist.append(key10)
     else: pass
 
-#Call generator function
+#Call generator class
 outputlist = []
-wordlist1 = generate_wordlist(masslist)
+wg = WordlistGenerator(masslist)
+wordlist1 = wg.generate_wordlist()
 wordlist2 = []
 wordlist3 = []
 
-#Special characters
+#Special characters (MODIFY to Integrate with Class)
 for i in wordlist1:
     x = i + "$"
     wordlist2.append(x)
